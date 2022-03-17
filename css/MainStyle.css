@@ -1,0 +1,863 @@
+:root {
+  --accent-color: #4c6ef5;
+  --text-color: #3c3f41;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgba(225, 233, 237, 0.31);
+  color: #171717;
+  margin: 0;
+  font-family: "Roboto", "sans-serif";
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+#tooltip {
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.user-buttons {
+  display: flex;
+}
+
+.user-buttons a {
+  margin: 0 5px 0 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  font-weight: bold;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.user-buttons a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transition: 0.3s;
+}
+
+.main-box h1,
+h2,
+h4 {
+  text-align: center;
+  font-family: "Fredoka One", "sans-serif";
+  font-weight: normal;
+  font-size: 3em;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.2em;
+}
+
+.main-box h2 {
+  font-size: 2.5em;
+}
+
+.main-box h4 {
+  font-size: 1.2em;
+}
+
+h3.profileFormat {
+  text-align: center;
+  font-family: "Fredoka One", "sans-serif";
+  font-weight: normal;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.2em;
+  font-size: 2em;
+}
+
+#main-form label {
+  font-size: 0.8em;
+}
+
+#main-form button {
+  font-size: 0.6em;
+}
+
+.item img {
+  max-width: 80px;
+  max-height: 80px;
+  margin: 15px;
+  border-radius: 50%;
+  border: 4px solid #3c3f41;
+  height: 20%;
+  width: 20%;
+}
+
+.bucket-content {
+  margin: 2%;
+}
+
+.bucket-list-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.bucketListNav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.bucketListNav button {
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 5px;
+  margin: 0 2px 0 2px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  background: none;
+}
+
+.bucketListNav button:hover {
+  color: #a0cdf1;
+}
+
+.bucket-list-nav button {
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 5px;
+  margin: 0 2px 0 2px;
+  border-radius: 5px;
+  display: flex;
+  font-size: 1.1em;
+  cursor: pointer;
+  background: none;
+}
+
+.bucket-list-nav button:hover {
+  color: #a0cdf1;
+}
+
+.bucket-list-nav a {
+  text-decoration: none;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.bucket-list-nav .exit-buttons {
+  margin-left: auto;
+}
+
+.bucket-list-nav a:hover {
+  color: #a0cdf1;
+}
+
+.item-buttons {
+  margin-left: 1%;
+  padding: 0 10px 0 0;
+  flex-direction: column;
+  border-right: 2px solid #b3b3b3;
+}
+
+.item-buttons > button {
+  padding: 5px;
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.item-buttons button:hover {
+  color: #b3b3b3;
+}
+a.inline {
+  color: var(--accent-color);
+}
+
+a.inline:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+a.inline:visited {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.login-box form {
+  display: block;
+  font-size: 1.5em;
+}
+
+.login-box fieldset,
+button {
+  display: block;
+  margin: 0.5em 0.3em;
+}
+
+#list-options button {
+  display: block;
+  margin: 0.5em 0.3em;
+  font-size: 1.5em;
+}
+
+#exit {
+  display: block;
+  font-size: 1.5em;
+}
+
+.login-box form input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #171717;
+  margin: 1em;
+  font-size: 1em;
+}
+
+button.createButton {
+  font-size: 1em;
+  margin: 0.3em;
+}
+
+button.centered {
+  color: #3c3f41;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 0.8em;
+  border-radius: 0.3em;
+  border: 2px solid var(--accent-color);
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.centered:hover {
+  transition: 0.3s;
+  color: white;
+  background-color: var(--accent-color);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+div.main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px auto;
+  padding: 0 5% 0 5%;
+  max-width: 900px;
+}
+
+div.item {
+  display: flex;
+  border: 0.1em solid #b3b3b3;
+  width: 100%;
+  margin: 1.5% 0 0 0;
+  border-radius: 10px;
+  align-items: center;
+}
+
+div.item h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  /*font-size: 1.3em;*/
+}
+
+div.item p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  /*font-size: 1.1em;*/
+}
+
+.box2 {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 10px;
+}
+
+.navigation-bar {
+  display: flex;
+  width: 100%;
+  padding: 7px 0;
+  background-color: white;
+
+  align-items: center;
+  justify-content: space-between;
+
+  -webkit-box-shadow: 0px 10px 16px -4px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 10px 16px -4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 10px 16px -4px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+}
+
+/* SEARCH BAR */
+.navigation-bar input[type="text"] {
+  background-color: rgba(238, 238, 238, 0.8);
+  width: 100%;
+  border: 0;
+  padding: 0 1%;
+  color: #171717;
+
+  border-bottom: 1px solid #b3b3b3;
+  font-size: 1.2em;
+  border-radius: 7px;
+
+  align-self: normal;
+}
+
+.navigation-bar input[type="text"]::placeholder {
+  text-align: center;
+  font-size: 1.2em;
+  color: #b3b3b3;
+}
+
+.search {
+  display: flex;
+  align-self: stretch;
+  font-size: 1.2em;
+  width: 35%;
+}
+
+.search i {
+  display: flex;
+  align-self: center;
+  font-size: 1.7em;
+  color: #b3b3b3;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+/*Dropdown Starts*/
+.dropbtn {
+  background-color: white;
+  color: var(--accent-color);
+  font-weight: bold;
+  padding: 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--accent-color);
+}
+
+.dropdown {
+  display: flex;
+  margin: 0 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--accent-color); /*Colour of the dropdown buttons*/
+  min-width: 160px;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: var(--accent-color);
+  font-weight: bold;
+  background-color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transition: 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: var(
+    --accent-color
+  ); /*Colour of the 'My Bucket Lists' buttons*/
+}
+/*Dropdown Ends*/
+
+.justifyRight {
+  justify-content: flex-end;
+}
+
+.dropdown a:visited {
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  color: #3c3f41;
+  background-color: var(--accent-color);
+}
+
+.dropdown a:active {
+  text-decoration: none;
+}
+
+.button-horizontal {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.6em;
+}
+
+.privatize {
+  height: 100%;
+}
+
+div.leftAlignText {
+  text-align: left;
+}
+
+table.profile {
+  border: none;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table.profile th {
+  border-bottom: 1px solid #000;
+}
+
+table.profile td,
+th {
+  padding: 0.5em 1.5em 0.5em 1.5em;
+}
+
+table.profile td,
+th {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+table.profile td:first-child,
+th:first-child {
+  border-left: none;
+}
+
+table.profile td:last-child,
+th:last-child {
+  border-right: none;
+}
+
+h3.space {
+  padding-top: 2em;
+}
+
+button.delete {
+  color: #3c3f41;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 0.8em;
+  border-radius: 0.3em;
+  border: 2px solid #f5372c;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.delete:hover {
+  transition: 0.3s;
+  color: white;
+  background-color: #f5372c;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+
+  font-size: 1em;
+  font-weight: bold;
+}
+
+button.delete:focus {
+  outline: 0;
+}
+
+div.large {
+  max-width: 90%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-label {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.icon-label input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+
+.passtrengthMeter {
+  margin: 1rem;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+#backtoButton {
+  text-decoration: none;
+}
+
+.iconOverlay {
+  font-size: 1.5em;
+}
+
+.splashPage {
+  justify-content: space-around;
+  height: 100%;
+  margin: 0 auto !important;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background-color: white;
+
+  -webkit-box-shadow: 0px 0px 23px 0px rgb(33, 29, 33);
+  -moz-box-shadow: 0px 0px 23px 0px rgba(33, 29, 33, 1);
+  box-shadow: 0px 0px 23px 0px rgba(33, 29, 33, 1);
+}
+
+div.main-splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 5% 0 5%;
+  max-width: 900px;
+}
+
+.splashIcon {
+  height: 45vh;
+  animation: rotation 8s infinite linear;
+  -webkit-filter: drop-shadow(5px 5px 5px #464344);
+  filter: drop-shadow(5px 5px 5px #474646);
+}
+
+
+
+.splashButtons {
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.splashButtons a {
+  width: 25%;
+  border-bottom: 1px solid black;
+  text-align: center;
+  height: 3vh;
+
+  -webkit-transition: all ease 0.8s;
+  -moz-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+  color: black;
+  letter-spacing: 2px;
+  padding-top: 2%;
+}
+
+.splashButtons a:hover {
+  box-shadow: inset 0 -100px 0 0 #000000;
+  color: #fff;
+}
+
+.headerBG {
+  padding: 5%;
+  background-color: rgba(221, 221, 221, 0.2);
+  /* order: 2px solid blackb; */
+}
+
+.headerBG h4 {
+  letter-spacing: 2px;
+}
+
+#bucketDescription {
+  transition: 1s;
+}
+
+#bucketDescription:hover {
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: 1s;
+  text-decoration: underline;
+}
+
+.padding-right {
+  padding-right: 1em;
+}
+
+.addSubmit,
+.editSubmit {
+  height: 2.5vh;
+  width: 20vw;
+  text-align: center;
+  border-bottom: 1px solid black;
+  padding: 1%;
+  font-size: 2em;
+
+  -webkit-transition: all ease 0.6s;
+  -moz-transition: all ease 0.6s;
+  transition: all ease 0.6s;
+  text-decoration: none;
+  color: black;
+}
+
+.editSubmit {
+  font-size: 1.5em !important;
+}
+
+.addSubmit:hover,
+.editSubmit:hover {
+  box-shadow: inset 0 -200px 0 0 #000000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.addLabel {
+  font-size: 2em;
+  letter-spacing: 2px;
+  margin: auto 1vw;
+}
+
+.editLabel {
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  margin: auto 1vw;
+}
+
+#descEdit,
+#nameEdit,
+#nameModify,
+#descModify,
+#title,
+#description {
+  width: 60%;
+}
+
+#descEdit,
+#description {
+  height: 30%;
+}
+
+.wrongSelection {
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(255, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 6px 0px rgba(255, 0, 0, 1);
+  box-shadow: 0px 0px 6px 0px rgba(255, 0, 0, 1);
+}
+
+.addModalContent {
+  margin: 5% 0;
+  vertical-align: middle;
+}
+
+.addModalContent input,
+textarea {
+  border: 1px solid black;
+  padding: 1%;
+  letter-spacing: 1px;
+}
+
+.addModalContent input:focus,
+textarea:focus {
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+a.toButton {
+  color: var(--accent-color);
+  font-weight: bold;
+  background-color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+  border: 2px solid var(--accent-color);
+  border-radius: 5px;
+}
+
+a.toButton:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transition: 0.3s;
+}
+
+a.listLink {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+a.listLink:visited {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+a.listLink:focus {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+a.listLink:hover,
+a:active {
+  text-decoration: none;
+  color: #62749c;
+}
+
+form.wide {
+  width: 100%;
+}
+
+.addLucky {
+  font-size: 4em;
+  padding-left: 5%;
+  padding-right: 5%;
+  transition: 0.5s;
+  color: #171717;
+}
+
+.addLucky:hover {
+  cursor: pointer;
+  color: #5c6366;
+  transition: 0.5s;
+}
+
+.fa-magic:hover {
+  color: #252525;
+  transition: 0.5s;
+}
+
+.fa-magic {
+  transition: 0.5s;
+}
+
+.yinyang {
+  display: flex;
+  justify-content: center;
+  animation: roll 40000s infinite;
+  position: relative;
+  background: #fff;
+  height: 100px;
+  border-color: #000;
+  border-style: solid;
+  width: 50px;
+  border-width: 2px 50px 2px 2px;
+  border-radius: 50%;
+}
+body.yinyang {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20em;
+}
+.yinyang:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  background: #fff;
+  border: 18px solid #000;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+}
+.yinyang:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #000;
+  border: 18px solid #fff;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+}
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(3600000deg);
+  }
+}
+
+/* CSS */
+.button-27 {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1a1a1a;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 40%;
+  will-change: transform;
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  background-color: white;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
