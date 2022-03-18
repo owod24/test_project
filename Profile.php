@@ -2,24 +2,24 @@
 session_start();
 require "./includes/library.php";
 
-if (!(isset($_SESSION['username']) && $_SESSION['username'] != '')) {
+if (!(isset($_SESSION['username']) && $_SESSION['password'] != '')) {  ///changed the username to password
     header("Location: Login.php");
     exit();
 }
 
-if (isset($_POST['deleteList'])){
+if (isset($_POST['deleteList'])){ //To delete a list 
     $listID = $_POST['listID'];
 
     /* Connect to DB */
     $pdo = connectDB();
 
     //Delete all entries
-    $query = "DELETE FROM bucket_entries WHERE fk_listid=?";
-    $statement = $pdo->prepare($query);
+    $sql = "DELETE FROM Lists WHERE fk_listid=?"; /// Need to create a database called lists  and have the list have an ID called listID
+    $statement = $pdo->prepare($sql);
     $statement->execute([$listID]); // fill with passed in id
 
-    $query = "DELETE FROM bucket_lists WHERE id=?";
-    $statement = $pdo->prepare($query);
+    $sql = "DELETE FROM bucket_lists WHERE id=?";
+    $statement = $pdo->prepare($sql);
     $statement->execute([$listID]); // fill with passed in id
 }
 
@@ -28,38 +28,38 @@ $errors = [];
 /* Connect to DB */
 $pdo = connectDB();
 
-$query = "SELECT email FROM `bucket_users` WHERE id=?";
-$statement = $pdo->prepare($query);
+$sql = "SELECT email FROM `Users` WHERE userID=?";
+$statement = $pdo->prepare($sql);
 $statement->execute([$_SESSION['userID']]);
 $email = $statement->fetch();
 
-$query = "SELECT * FROM `bucket_lists` WHERE fk_userid = ? ORDER BY title";
-$statement = $pdo->prepare($query);
+$sql = "SELECT * FROM `Lists` WHERE fk_userid = ? ORDER BY title"; /// need to add a FOREIGN KEY to the LIST  database from USER database called userID
+$statement = $pdo->prepare($sql);
 $statement->execute([$_SESSION['userID']]);
 $lists = $statement->fetchAll();
 
 if (isset($_POST['submit'])) {
     //Gets all the lists the user is associated with
-    $query = "SELECT id FROM `bucket_lists` WHERE fk_userid=?";
-    $statement = $pdo->prepare($query);
+    $sql = "SELECT id FROM `Lists` WHERE fk_userid=?";
+    $statement = $pdo->prepare($sql);
     $statement->execute([$_SESSION['userID']]);
     $userLists = $statement->fetchAll();
 
     //Deletes all of the entries in the lists the user is associated with
     foreach ($userLists as $list) {
-        $query = "DELETE FROM `bucket_entries` WHERE fk_listid=?";
-        $statement = $pdo->prepare($query);
+        $sql = "DELETE FROM `Entries` WHERE fk_listid=?"; /// Need to create a databse called ENTRIES 
+        $statement = $pdo->prepare($sql);
         $statement->execute([$list['id']]);
     }
 
     //Deletes all the lists the user is associated with
-    $query = "DELETE FROM `bucket_lists` WHERE fk_userid=?";
-    $statement = $pdo->prepare($query);
+    $sql = "DELETE FROM `Lists` WHERE fk_userid=?";
+    $statement = $pdo->prepare($sql);
     $statement->execute([$_SESSION['userID']]);
 
     //Deletes the user
-    $query = "DELETE FROM `bucket_users` WHERE id=?";
-    $statement = $pdo->prepare($query);
+    $sql = "DELETE FROM `Users` WHERE id=?";
+    $statement = $pdo->prepare($sql);
     $statement->execute([$_SESSION['userID']]);
 
     header('Location: Logout.php');
@@ -73,35 +73,33 @@ if (isset($_POST['completeCreation'])) {
         $private = 1;
     }
 
-    $query="INSERT INTO `bucket_lists`(`title`, `fk_userid`, `created`, `description`, `private`) VALUES (?,?,?,?,?)";
-    $statement = $pdo->prepare($query);
+    $sql="INSERT INTO `Lists`(`title`, `fk_userid`, `created`, `description`, `private`) VALUES (?,?,?,?,?)"; /// pay attention to this database set of columns
+    $statement = $pdo->prepare($sql);
     $statement->execute([$_POST['title'], $_SESSION['userID'], $date, $_POST['description'], $private]);
     header("Refresh:0");
 }
 ?>
 
-<head>
-    <script src="scripts/Profile.js"></script>
-</head>
-<!-- HTML Starts -->
+
+
 <?php include "./includes/header.php"; ?>
-    <div class="main-box large">
+<div class=" ">
         <h1><?php echo ucfirst($_SESSION['username'])?>'s Profile</h1> <!-- Loads the username into the title -->
 
-        <div class="leftAlignText">
-            <h3 class="profileFormat">Account Details</h3> <!-- Displays the users account details, such as email and password -->
+        <div class=" ">
+            <h3 class=" ">Account Details</h3> <!-- Displays the users account details, such as email and password -->
             <p><b>Username</b>: <?php echo $_SESSION['username']?></p>
             <p><b>E-mail</b>: <?php echo $email['email']?></p>
         </div>
 
-        <h3 class="space profileFormat">Your Bucket Lists</h3>
+        <h3 class=" ">Your Lists</h3>
 
-        <div class="bucketListNav"> <!-- Nav bar which contains the create list button -->
+        <div class=" "> <!-- Nav bar which contains the create list button -->
             <button id="createList" data-open-modal="createListModal" name="createList" data-tippy-content="Create A List"><i class="fas fa-plus"></i></button>
             <div id="createListModal" class="modal"> <!-- Creates a modal where the user can enter their new list information -->
                 <div class="modal-content">
                     <span class="close-btn">&times;</span>
-                    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class="wide">
+                    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" class=" ">
                         <div class="addModalContent">
                             <label for="title" class="addLabel">Title</label>
                             <input id="title" name="title" type="text" placeholder="Title" required> <!-- Title, required before form submission -->
@@ -167,4 +165,4 @@ if (isset($_POST['completeCreation'])) {
             window.history.replaceState( null, null, window.location.href );
         }
     </script>
-<?php include "./includes/footer.php"; ?>
+    <?php include "./includes/footer.php"; ?>
